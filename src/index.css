@@ -1,0 +1,151 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-heading: "Outfit", system-ui, sans-serif;
+
+  /* Custom Freezing Cold Color Theme */
+  --color-brand-dark: #f8fafc;       /* Clean slate white background */
+  --color-brand-navy: #0f172a;       /* Deep slate navy text */
+  --color-brand-card: #ffffff;       /* Pure white card backgrounds */
+  --color-brand-cyan: #06b6d4;       /* Cooling Cyan */
+  --color-brand-cyan-light: #38bdf8; /* Soft ice-blue */
+  --color-brand-cyan-dark: #0284c7;  /* Freezing blue accents */
+  
+  /* Custom Freezing Animations */
+  --animate-cool-float: cool-float 8s ease-in-out infinite;
+  --animate-ice-drift-slow: ice-drift 20s linear infinite;
+  --animate-ice-drift-fast: ice-drift 12s linear infinite;
+  --animate-breeze-flow: breeze-flow 15s linear infinite;
+}
+
+/* Freezing Keyframes */
+@keyframes cool-float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(1.5deg);
+  }
+}
+
+@keyframes ice-drift {
+  0% {
+    transform: translateY(-10%) translateX(-5%) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(110%) translateX(5%) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes breeze-flow {
+  0% {
+    background-position: 0% 50%;
+    opacity: 0.15;
+  }
+  50% {
+    background-position: 100% 50%;
+    opacity: 0.35;
+  }
+  100% {
+    background-position: 0% 50%;
+    opacity: 0.15;
+  }
+}
+
+/* Base Adjustments */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: #f0f9ff; /* Soft freezing light ice-blue background */
+  color: #0f172a;
+}
+
+/* Ice Glassmorphism Utilities (White + Ice-Blue accents) */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(6, 182, 212, 0.1);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(6, 182, 212, 0.15);
+  box-shadow: 0 10px 30px -15px rgba(2, 132, 199, 0.08);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(6, 182, 212, 0.4);
+  box-shadow: 0 15px 35px -10px rgba(6, 182, 212, 0.2);
+  transform: translateY(-5px);
+}
+
+/* Text Accent Underline */
+.accent-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.accent-underline::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -6px;
+  width: 50px;
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #06b6d4, #0284c7);
+}
+
+/* Ice Airflow Background Elements */
+.ice-bg-container {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.ice-snowflake {
+  position: absolute;
+  top: -50px;
+  color: rgba(6, 182, 212, 0.15);
+  pointer-events: none;
+}
+
+/* Freezing Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f9ff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 5px;
+  border: 2px solid #f0f9ff;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #06b6d4;
+}
